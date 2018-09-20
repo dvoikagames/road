@@ -150,11 +150,11 @@
         // If array - set random timeout
 
         this.accPresets = {
-            eyesPlayer: [[220, 320], {x: 0, y: 0}, true, 10, {x: 3, y: 0}, 10, false],
+            eyesPlayer: [[220, 320], {x: 0, y: 0}, true, 5, {x: 3, y: 0}, 5, false],
             mouthPlayer: [[60, 120], {x: 3, y: 4}, true, 10, {x: 0, y: 4}, 10, {x: 3, y: 4}, 10, false],
 
-            dogmeatSmallEyes: [[220, 320], {x: 0, y: 0}, true, 20, false],
-            ianWink: [[220, 320], {x: 0, y: 0}, true, 10, false],
+            dogmeatSmallEyes: [[220, 320], {x: 0, y: 0}, true, 5, false],
+            ianWink: [[220, 320], {x: 0, y: 0}, true, 5, false],
         };
 
         if (character instanceof Game_Player) {
