@@ -134,6 +134,29 @@
 
 })();
 
+// Add some reusable data
+$char = {};
+(function () {
+    // Generate mouth and winks presets
+
+    let pw = [{x: 0, y: 0}, true, 3, {x: 3, y: 0}, 3, false];
+    let pm = [{x: 3, y: 4}, true, 3, {x: 0, y: 4}, 3, {x: 3, y: 4}, 3, false];
+
+    let dmse = [{x: 0, y: 0}, true, 6, false];
+    let dmbe = [{x: 3, y: 0}, true, 6, false];
+
+    let ian = [{x: 3, y: 0}, true, 6, false];
+
+    $char.accPresets = {
+        eyesPlayer: [160, ...pw, 240, ...pw, 200, ...pw, 4, ...pw, 480, ...pw, 120, ...pw, 360, ...pw, 180, ...pw, 240, ...pw, 4, ...pw],
+        mouthPlayer: [550, ...pm, 800, ...pm, 1050, ...pm, 700, ...pm],
+
+        dogmeatSmallEyes: [[160, 260], ...dmse, [160, 260], ...dmse, [160, 260], ...dmse, 4, ...dmse, 480, ...dmse, 120, ...dmse, 360, ...dmse, 180, ...dmse, 240, ...dmse, 4, ...dmse],
+
+        ianWink: [[160, 260], ...ian, 240, ...ian, 210, ...ian, 200, ...ian, 4, ...ian, 480, ...ian, 120, ...ian, 360, ...ian, 180, ...ian, 210, ...ian, 240, ...ian, 4, ...ian],
+    };
+})();
+
 // Sprite_Character
 (function () {
     let initialize = Sprite_Character.prototype.initialize;
@@ -148,14 +171,6 @@
         // If bool - set visible
         // If number - set timeout
         // If array - set random timeout
-
-        this.accPresets = {
-            eyesPlayer: [[220, 320], {x: 0, y: 0}, true, 5, {x: 3, y: 0}, 5, false],
-            mouthPlayer: [[60, 120], {x: 3, y: 4}, true, 10, {x: 0, y: 4}, 10, {x: 3, y: 4}, 10, false],
-
-            dogmeatSmallEyes: [[220, 320], {x: 0, y: 0}, true, 5, false],
-            ianWink: [[220, 320], {x: 0, y: 0}, true, 5, false],
-        };
 
         if (character instanceof Game_Player) {
             //Not need dynamic accessories for player now
@@ -260,7 +275,7 @@
                     settings.index = 0;
                 }
 
-                let pattern = this.accPresets[settings.pattern];
+                let pattern = $char.accPresets[settings.pattern];
 
                 let current = pattern[settings.index];
 
